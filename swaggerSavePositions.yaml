@@ -1,0 +1,143 @@
+openapi: 3.0.1
+info:
+  title: Customer Project Repository API
+  description: API для сохранения позиций в проекте
+  version: 1.0.0
+
+paths:
+  /projects/positions:
+    post:
+      summary: Сохранение позиций в проекте
+      description: Создаёт новые позиции в проекте на основе предоставленных данных.
+      operationId: savePositions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                parentIdentifier:
+                  type: integer
+                  description: Идентификатор проекта, к которому принадлежат позиции
+                  example: 12345
+                parentType:
+                  type: string
+                  enum: [ТК, ГР, проект]
+                  description: Тип родителя, к которому принадлежат позиции
+                  example: "проект"
+                positions:
+                  type: array
+                  description: Список позиций для сохранения
+                  items:
+                    type: object
+                    properties:
+                      positionName:
+                        type: string
+                        description: Название позиции (обязательно для заполнения)
+                        maxLength: 255
+                        example: "Название позиции"
+                      positionType:
+                        type: string
+                        enum: [SIMPLE, COMPLEX]
+                        description: Тип позиции (обязательно для заполнения)
+                        example: "SIMPLE"
+                      positionOrder:
+                        type: integer
+                        description: Порядковый номер позиции для отображения на фронте
+                        example: 1
+                      nomenclature:
+                        type: object
+                        description: Номенклатура позиции
+                        properties:
+                          departmentId:
+                            type: integer
+                            description: ID отдела (обязательно для заполнения)
+                            example: 1
+                          subDepartmentId:
+                            type: integer
+                            description: ID подотдела (обязательно для заполнения)
+                            example: 2
+                          typeId:
+                            type: integer
+                            description: ID типа (обязательно для заполнения)
+                            example: 3
+                          subTypeId:
+                            type: integer
+                            description: ID подтипа (обязательно для заполнения)
+                            example: 4
+                      isComplementary:
+                        type: boolean
+                        description: Указывает, является ли позиция комплементарной
+                        example: true
+                      productModels:
+                        type: array
+                        description: Список товарных моделей
+                        items:
+                          type: object
+                          properties:
+                            modelIdentifier:
+                              type: string
+                              description: Идентификатор модели товара (необязательно для заполнения)
+                              example: "Model123"
+                            characteristicIdentifier:
+                              type: string
+                              description: Идентификатор характеристики (необязательно для заполнения)
+                              example: "Char123"
+                            characteristics:
+                              type: array
+                              description: Список характеристик модели
+                              items:
+                                type: object
+                                properties:
+                                  characteristicValue:
+                                    type: string
+                                    description: Значение характеристики
+                                    example: "Value123"
+                                  characteristicValueIdentifier:
+                                    type: string
+                                    description: Идентификатор значения характеристики (только для SIMPLE и MULTISIMPLE)
+                                    example: "ValueId123"
+                                  characteristicMinValue:
+                                    type: string
+                                    description: Минимальное значение характеристики (только для number и metric)
+                                    example: "10"
+                                  characteristicMaxValue:
+                                    type: string
+                                    description: Максимальное значение характеристики (только для number и metric)
+                                    example: "100"
+                      gammaLetter:
+                        type: string
+                        description: Буква гаммы (необязательно для заполнения)
+                        example: "Г"
+                      qartel:
+                        type: string
+                        description: Квартель (необязательно для заполнения)
+                        example: "Q1"
+                      commercialItem:
+                        type: array
+                        description: Список ID товаров (обязательно для заполнения)
+                        items:
+                          type: integer
+                          example: 1
+      responses:
+        '200':
+          description: Позиции успешно сохранены
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Positions saved successfully"
+        '400':
+          description: Неверный запрос
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid request data"

@@ -1,0 +1,36 @@
+"parentIdentifier": "ID_проекта",  // num, идентификатор проекта, к которому принадлежат позиции (int) сохраняется  parentIdentifier на бэке
+"parentType": "Тип родителя" //num, ТК,ГР,проект - к которому принадлежат позиция (ENUM) 
+    "positions": [
+        {
+            "positionName": "Название позиции", // num,  обязательно лдя заполнения , lim 255  символов
+            "positionType": "Тип позиции", // ENUM 
+            "positionOrder": 1,// num , Порядковый номер для отображения на фронте 
+            "nomenclature": {  //num, перечислены id отдела, подотдела, типа,подтипа 
+                "departmentId": 1, // num , обязательно для заполнения 
+                "subDepartmentId": 2, // num , обязательно для заполнения 
+                "typeId": 3,// num , обязательно для заполнения 
+                "subTypeId": 4 // num , обязательно для заполнения 
+            },
+            "isComplementary": true, //bool 
+            "productModels": [
+                {
+                    "modelIdentifier": "Идентификатор модели товара", // num , необязательно для заполнения 
+                    "characteristicIdentifier": "Идентификатор характеристики", // num , необязательно для заполнения,      
+                    "characteristics": [
+                        {   
+                            "characteristicValue": "Значение характеристики", // string, 
+                            "characteristicValueIdentifier": "Идентификатор значения характеристки", // num , необязательно для заполнения ,заполняется только для SIMPLE и MULTISIMPLE 
+                            "characteristicMinValue": "Минимальное значение характеристики", // num , необязательно для заполнения, заполняется только для number и metric
+                            "characteristicMaxValue": "Максимальное значение характеристики" // num , необязательно для заполнения, заполняется только для number и metric
+                        }
+                    ]
+                }
+            ],
+            "gammaLetter": "Буква гаммы", // num , необязательно для заполнения
+            "qartel": "Квартель", // num , необязательно для заполнения
+            "commercialItem": [ 1, // num ,id товаров  обязательно для заполнения 
+                                2, 
+                                3
+          ]
+        }
+    ]
