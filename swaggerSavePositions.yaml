@@ -84,7 +84,7 @@ paths:
                               type: string
                               description: Идентификатор характеристики (необязательно для заполнения)
                               example: "Char123"
-                            characteristics:
+                            characteristicsValues:
                               type: array
                               description: Список характеристик модели
                               items:
