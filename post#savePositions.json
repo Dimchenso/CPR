@@ -16,7 +16,7 @@
                 {
                     "modelIdentifier": "Идентификатор модели товара", // num , необязательно для заполнения 
                     "characteristicIdentifier": "Идентификатор характеристики", // num , необязательно для заполнения,      
-                    "characteristics": [
+                    "characteristicsValues": [
                         {   
                             "characteristicValue": "Значение характеристики", // string, 
                             "characteristicValueIdentifier": "Идентификатор значения характеристки", // num , необязательно для заполнения ,заполняется только для SIMPLE и MULTISIMPLE 
