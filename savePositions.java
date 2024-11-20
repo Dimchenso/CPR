@@ -83,7 +83,7 @@ class Nomenclature {
 class ProductModel {
     private String modelIdentifier;
     private String characteristicIdentifier;
-    private List<CharacteristicValue> characteristicsValues; // Переименованное поле
+    private List<CharacteristicValue> characteristicsValues; // Значения характеристики
 
     // Геттеры и сеттеры
 }
