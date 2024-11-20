@@ -13,9 +13,7 @@ public class ProjectController {
             return ResponseEntity.badRequest().body("Invalid request data");
         }
 
-        // Пример логики обработки данных
         for (Position position : request.getPositions()) {
-            // Сохранение позиции, проверка обязательных полей
             if (position.getPositionName() == null || position.getNomenclature() == null) {
                 return ResponseEntity.badRequest().body("Position data is invalid");
             }
@@ -85,12 +83,12 @@ class Nomenclature {
 class ProductModel {
     private String modelIdentifier;
     private String characteristicIdentifier;
-    private List<Characteristic> characteristics;
+    private List<CharacteristicValue> characteristicsValues; // Переименованное поле
 
     // Геттеры и сеттеры
 }
 
-class Characteristic {
+class CharacteristicValue {
     private String characteristicValue;
     private String characteristicValueIdentifier;
     private String characteristicMinValue;
