@@ -1,1 +1,36 @@
+{
+    "parentIdentifier": 12345, // ID проекта
+    "parentType": "проект", // Тип родителя (ENUM)
+    "positions": [
+        {
+            "positionName": "Название позиции", // Название позиции (строка, max 255 символов, обязательно)
+            "positionType": "SIMPLE", // Тип позиции (ENUM, обязательно)
+            "positionOrder": 1, // Порядковый номер (число)
+            "nomenclature": { // Номенклатура позиции (обязательное)
+                "departmentId": 1,
+                "subDepartmentId": 2,
+                "typeId": 3,
+                "subTypeId": 4
+            },
+            "isComplementary": true, // Комплементарная позиция (bool)
+            "productModels": [
+                {
+                    "modelIdentifier": "Model123", // Идентификатор модели (строка)
+                    "characteristicIdentifier": "Char123", // Идентификатор характеристики (строка)
+                    "characteristicsValues": [ //Значения
+                        {
+                            "characteristicValue": "Value123", // Значение характеристики (строка)
+                            "characteristicValueIdentifier": "ValueId123", // Идентификатор значения (строка)
+                            "characteristicMinValue": "10", // Минимальное значение (строка)
+                            "characteristicMaxValue": "100" // Максимальное значение (строка)
+                        }
+                    ]
+                }
+            ],
+            "gammaLetter": "Г", // Буква гаммы (строка)
+            "qartel": "Q1", // Квартель (строка)
+            "commercialItem": [1, 2, 3] // ID товаров (массив чисел, обязательно)
+        }
+    ]
+}
 
