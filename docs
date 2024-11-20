@@ -1,3 +1,5 @@
+Тело запроса 
+
 {
     "parentIdentifier": 12345, // ID проекта
     "parentType": "проект", // Тип родителя (ENUM)
@@ -34,3 +36,14 @@
     ]
 }
 
+
+200 ok 
+
+{
+    "message": "Positions saved successfully"
+}
+
+400 Bad Request
+{
+    "error": "Invalid request data"
+}
